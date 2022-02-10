@@ -1,31 +1,40 @@
 #include <iostream>
+
 #define Size 10
 
 
 using namespace std;
 
-class Queue{
+class Queue {
 private:
-    int items[Size],front,rear;
+    int items[Size], front, rear;
 
 public:
     //Getter Setter
     int getFront() const;
+
     int getRear() const;
+
     void setRear(int rear);
+
     void setFront(int front);
+
     // Default Constructor
     Queue();
+
     // Utilities
     bool isEmpty();
+
     bool isFull();
+
     int peek();
+
     //Operations
     void enQueue(int val);
+
     int deQueue();
+
     void display();
-
-
 
 
 };
@@ -52,87 +61,76 @@ Queue::Queue() {
 }
 
 bool Queue::isEmpty() {
-    if(getFront()==-1)
+    if (getFront() == -1)
         return true;
     return false;
 }
 
 bool Queue::isFull() {
-    if(getFront()==0 && getRear()==Size-1)
+    if (getFront() == 0 && getRear() == Size - 1)
         return true;
     return false;
 }
 
 int Queue::peek() {
-    if (isFull())
-    {
-        cout<<"Underflow!"<<endl;
+    if (isFull()) {
+        cout << "Underflow!" << endl;
         return 0;
     }
-    cout<<"Peek  : "<<items[getFront()];
+    cout << "Peek  : " << items[getFront()];
     return items[getFront()];
 }
 
 void Queue::enQueue(int val) {
-    if(isFull())
-        cout<<"Overflow !"<<endl;
-    else
-    {
-        if(getFront()==-1)
+    if (isFull())
+        cout << "Overflow !" << endl;
+    else {
+        if (getFront() == -1)
             setFront(0);
-        setRear(getRear()+1);
-        items[getRear()]=val;
-        cout<<val<<" EnQueued successfully"<<endl;
+        setRear(getRear() + 1);
+        items[getRear()] = val;
+        cout << val << " EnQueued successfully" << endl;
     }
 }
 
 int Queue::deQueue() {
     int element;
-    if(isEmpty())
-    {
-        cout<<"Underflow !"<<endl;
+    if (isEmpty()) {
+        cout << "Underflow !" << endl;
         return -1;
-    }
-    else
-    {
-        element=items[getFront()];
-        if(getFront()>=getRear())
-        {
+    } else {
+        element = items[getFront()];
+        if (getFront() >= getRear()) {
             setRear(-1);
             setFront(-1);
-        }
-        else
-        {
-            setFront(getFront()+1);
+        } else {
+            setFront(getFront() + 1);
         }
     }
-    cout<<"Successfully deQueued "<<element<<endl;
+    cout << "Successfully deQueued " << element << endl;
     return element;
 }
 
 void Queue::display() {
-    if(isEmpty())
-        cout<<"Underflow!"<<endl;
-    else
-    {
-        cout<<"Front : "<<items[getFront()]<<endl;
-        cout<<"Items : ";
-        for(int i=getFront();i<=getRear();i++)
-        {
-            cout<<items[i];
-            if(i==getRear())
-                cout<<endl;
+    if (isEmpty())
+        cout << "Underflow!" << endl;
+    else {
+        cout << "Front : " << items[getFront()] << endl;
+        cout << "Items : ";
+        for (int i = getFront(); i <= getRear(); i++) {
+            cout << items[i];
+            if (i == getRear())
+                cout << endl;
             else
-                cout<<" ";
+                cout << " ";
 
         }
-        cout<<"Rear  : "<<items[getRear()]<<endl;
+        cout << "Rear  : " << items[getRear()] << endl;
 
     }
 }
 
-int main()
-{
+int main() {
     Queue q1;
     q1.enQueue(5);
     q1.enQueue(6);
