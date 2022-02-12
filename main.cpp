@@ -20,21 +20,21 @@ public:
     void setFront(int front);
 
     // Default Constructor
-    Queue();
+    Queue();                        // Puts -1 to both rear and front initially
 
     // Utilities
-    bool isEmpty();
+    bool isEmpty();                 // returns true is the Queue is empty else false
 
-    bool isFull();
+    bool isFull();                  // returns true if Queue is Full
 
-    int peek();
+    int peek();                     // returns the first element of the Queue if not empty else -1
 
     //Operations
-    void enQueue(int val);
+    void enQueue(int val);          // function to enQueue
 
-    int deQueue();
+    int deQueue();                  // function deQueue
 
-    void display();
+    void display();                 // function to display the queue
 
 
 };
