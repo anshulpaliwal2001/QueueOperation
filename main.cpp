@@ -1,3 +1,7 @@
+/*
+ *  Author : Anshul Paliwal
+ *  For : Practice
+ *  */
 #include <iostream>
 
 #define Size 10
@@ -142,4 +146,3 @@ int main() {
     q1.peek();
     return 0;
 }
-
